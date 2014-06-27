@@ -53,4 +53,19 @@
  *  @return NSDate representation
  */
 + (NSDate *)getCreationDateOfFile:(NSString *)fileName;
+/**
+ *  Saving data to NSUserDefaults
+ *
+ *  @param object any object
+ *  @param key    key name for the object to be saved.
+ */
++ (void)saveObjectToUserDefault:(id)object forKey:(NSString *)key;
+/**
+ *  Retrieving data from NSUserDefaults
+ *
+ *  @param key keyname for which object to be returned.
+ *
+ *  @return object any object
+ */
++ (id)retrievingObjectFromUserDefaultForKey:(NSString *)key;
 @end
