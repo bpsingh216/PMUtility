@@ -25,26 +25,26 @@
  *
  *  @return return true if file exists ,false otherwise.
  */
-- (BOOL) isFileExists:(NSString*)fileName;
++ (BOOL) isFileExists:(NSString*)fileName;
 /**
  *  Getting all files in app budle with specified path Extension
  *
  *  @param pathExtension  predicate String created as @"pathExtension == 'png'"
  *   e.g. NSString *pathExtension =@"pathExtension == 'png'";
  */
--(NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension;
++ (NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension;
 /**
  *  Creating directory
  *
  *  @param name directory name
  */
--(void)createDirectoryWithName:(NSString *)name;
++ (void)createDirectoryWithName:(NSString *)name;
 /**
  *  Deleting a File
  *
  *  @param fileNameWithExtension file name with extentension to be deleted
  */
--(void)deleteFileWithName:(NSString *)fileNameWithExtension;
++ (void)deleteFileWithName:(NSString *)fileNameWithExtension;
 /**
  *  Determining the Creation Date of a File
  *
@@ -52,5 +52,5 @@
  *
  *  @return NSDate representation
  */
--(NSDate *)getCreationDateOfFile:(NSString *)fileName;
++ (NSDate *)getCreationDateOfFile:(NSString *)fileName;
 @end

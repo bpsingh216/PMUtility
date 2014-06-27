@@ -98,7 +98,7 @@
  *
  *  @return return true if file exists ,false otherwise.
  */
-- (BOOL) isFileExists:(NSString*)fileName
++ (BOOL) isFileExists:(NSString*)fileName
 {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL fileExists=NO;
@@ -129,7 +129,7 @@
  *  @param pathExtension  predicate String created as @"pathExtension == 'png'"
  *   e.g. NSString *pathExtension =@"pathExtension == 'png'";
  */
--(NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension{
++ (NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension{
     NSMutableArray *fileURLs=[[NSMutableArray alloc]init];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *bundleURL = [[NSBundle mainBundle] bundleURL];
@@ -150,7 +150,7 @@
  *
  *  @param name directory name
  */
--(void)createDirectoryWithName:(NSString *)name{
++ (void)createDirectoryWithName:(NSString *)name{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *path = [documentsPath stringByAppendingPathComponent:name];
@@ -163,7 +163,7 @@
  *
  *  @param fileNameWithExtension file name with extentension to be deleted
  */
--(void)deleteFileWithName:(NSString *)fileNameWithExtension{
++ (void)deleteFileWithName:(NSString *)fileNameWithExtension{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileNameWithExtension];
@@ -180,7 +180,7 @@
  *
  *  @return NSDate representation
  */
--(NSDate *)getCreationDateOfFile:(NSString *)fileName{
++ (NSDate *)getCreationDateOfFile:(NSString *)fileName{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
@@ -191,6 +191,33 @@
         creationDate = attributes[NSFileCreationDate];
     }
     return creationDate;
+}
+#pragma mark -
+#pragma mark UserDefault Methods
+/**
+ *  Saving data to NSUserDefaults
+ *
+ *  @param object any object
+ *  @param key    key name for the object to be saved.
+ */
++ (void)saveObjectToUserDefault:(id)object forKey:(NSString *)key{
+    //For saving
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:object forKey:key];
+    [defaults synchronize];
+ }
+/**
+ *  Retrieving data from NSUserDefaults
+ *
+ *  @param key keyname for which object to be returned.
+ *
+ *  @return object any object
+ */
++ (id)retrievingObjectFromUserDefaultForKey:(NSString *)key{
+    id result=nil;
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    result= [defaults objectForKey:key];
+    return result;
 }
 
 @end

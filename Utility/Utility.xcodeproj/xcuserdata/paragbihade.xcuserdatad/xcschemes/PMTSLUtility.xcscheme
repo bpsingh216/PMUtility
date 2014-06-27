@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "63C47EFB195C305E00AB5EAC"
-               BuildableName = "PMTSLUtility.framework"
+               BuildableName = "PMUtility.framework"
                BlueprintName = "PMUtility"
                ReferencedContainer = "container:Utility.xcodeproj">
             </BuildableReference>
