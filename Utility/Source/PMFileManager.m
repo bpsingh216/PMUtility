@@ -205,11 +205,7 @@
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject:object forKey:key];
     [defaults synchronize];
-    
-    //For retrieving data from NSUserDefaults
-    NSMutableArray *resultArray = [NSMutableArray arrayWithArray:[defaults objectForKey:@"numberArray"]];
-    
-}
+ }
 /**
  *  Retrieving data from NSUserDefaults
  *
