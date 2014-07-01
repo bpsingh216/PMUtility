@@ -25,26 +25,26 @@
  *
  *  @return return true if file exists ,false otherwise.
  */
-- (BOOL) isFileExists:(NSString*)fileName;
++ (BOOL) isFileExists:(NSString*)fileName;
 /**
  *  Getting all files in app budle with specified path Extension
  *
  *  @param pathExtension  predicate String created as @"pathExtension == 'png'"
  *   e.g. NSString *pathExtension =@"pathExtension == 'png'";
  */
--(NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension;
++ (NSMutableArray*)getAllFilesFromAppBundleWithPathExtension:(NSString *)pathExtension;
 /**
  *  Creating directory
  *
  *  @param name directory name
  */
--(void)createDirectoryWithName:(NSString *)name;
++ (void)createDirectoryWithName:(NSString *)name;
 /**
  *  Deleting a File
  *
  *  @param fileNameWithExtension file name with extentension to be deleted
  */
--(void)deleteFileWithName:(NSString *)fileNameWithExtension;
++ (void)deleteFileWithName:(NSString *)fileNameWithExtension;
 /**
  *  Determining the Creation Date of a File
  *
@@ -52,5 +52,20 @@
  *
  *  @return NSDate representation
  */
--(NSDate *)getCreationDateOfFile:(NSString *)fileName;
++ (NSDate *)getCreationDateOfFile:(NSString *)fileName;
+/**
+ *  Saving data to NSUserDefaults
+ *
+ *  @param object any object
+ *  @param key    key name for the object to be saved.
+ */
++ (void)saveObjectToUserDefault:(id)object forKey:(NSString *)key;
+/**
+ *  Retrieving data from NSUserDefaults
+ *
+ *  @param key keyname for which object to be returned.
+ *
+ *  @return object any object
+ */
++ (id)retrievingObjectFromUserDefaultForKey:(NSString *)key;
 @end

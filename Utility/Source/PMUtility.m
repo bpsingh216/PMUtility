@@ -6,7 +6,7 @@
  *	Copyright 2014 ParallelMinds Technology Solution Pvt.Ltd. All rights reserved.
  */
 
-#import "PMTSLUtility.h"
+#import "PMUtility.h"
 
 #pragma mark -
 #pragma mark Constants
@@ -23,7 +23,7 @@
 //	Private Interface
 //**************************************************
 
-@interface PMTSLUtility()
+@interface PMUtility()
 
 - (void) privateMethodA;
 
@@ -36,7 +36,7 @@
 //	Public Interface
 //**************************************************
 
-@implementation PMTSLUtility
+@implementation PMUtility
 
 #pragma mark -
 #pragma mark Properties
@@ -70,10 +70,7 @@
 //
 //**********************************************************************************************************
 
-- (void) privateMethodA
-{
-	NSLog(@"Calling privateMethodA, not visible to the developer");
-}
+
 
 #pragma mark -
 #pragma mark Self Public Methods
@@ -83,14 +80,39 @@
 //
 //**********************************************************************************************************
 
-- (void) methodA
-{
-	NSLog(@"Calling methodA at FIClassA");
+-(UIImageView*)createCircularImage:(UIImageView*)imageView{
+    
+    imageView.layer.cornerRadius = imageView.frame.size.width / 2;
+    imageView.layer.borderWidth = 3.0f;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    imageView.clipsToBounds = YES;
+    return imageView;
 }
-
-- (void) methodAWith:(int)anInt
-{
-	NSLog(@"Calling methodAWith:%i at FIClassA",anInt);
+-(UIImageView*)createRoundedCornerImage:(UIImageView*)imageView{
+    
+    imageView.layer.cornerRadius = 10.0f;
+    imageView.layer.borderWidth = 3.0f;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    imageView.clipsToBounds = YES;
+    
+    
+    return imageView;
+}
+-(UIImageView*)createCircularImage:(UIImageView*)imageView borderColor:(CGColorRef )color{
+    
+    imageView.layer.cornerRadius = imageView.frame.size.width / 2;
+    imageView.layer.borderWidth = 3.0f;
+    imageView.layer.borderColor = color;//[UIColor whiteColor].CGColor;
+    imageView.clipsToBounds = YES;
+    return imageView;
+}
+-(UIImageView*)createRoundedCornerImage:(UIImageView*)imageView borderColor:(CGColorRef )color{
+    
+    imageView.layer.cornerRadius = 10.0f;
+    imageView.layer.borderWidth = 3.0f;
+    imageView.layer.borderColor = color;
+    imageView.clipsToBounds = YES;
+    return imageView;
 }
 
 

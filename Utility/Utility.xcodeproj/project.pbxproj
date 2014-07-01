@@ -38,10 +38,10 @@
 		63BAA573195C202600E9814B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BAA555195C202600E9814B /* UIKit.framework */; };
 		63BAA57B195C202600E9814B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63BAA579195C202600E9814B /* InfoPlist.strings */; };
 		63BAA57D195C202600E9814B /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA57C195C202600E9814B /* UtilityTests.m */; };
-		63BAA598195C20A600E9814B /* PMTSLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMTSLUtility.m */; };
+		63BAA598195C20A600E9814B /* PMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMUtility.m */; };
 		63C47F03195C305E00AB5EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63C47F01195C305E00AB5EAC /* InfoPlist.strings */; };
-		63C47F08195C335A00AB5EAC /* PMTSLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMTSLUtility.m */; };
-		63C47F0A195C337800AB5EAC /* PMTSLUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BAA592195C20A600E9814B /* PMTSLUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63C47F08195C335A00AB5EAC /* PMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMUtility.m */; };
+		63C47F0A195C337800AB5EAC /* PMUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BAA592195C20A600E9814B /* PMUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63C47F0B195C337E00AB5EAC /* FI.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BAA591195C20A600E9814B /* FI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63C47F0C195C33B300AB5EAC /* Utility-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 63BAA55F195C202600E9814B /* Utility-Prefix.pch */; };
 /* End PBXBuildFile section */
@@ -79,8 +79,8 @@
 		63BAA57A195C202600E9814B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63BAA57C195C202600E9814B /* UtilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
 		63BAA591195C20A600E9814B /* FI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FI.h; sourceTree = "<group>"; };
-		63BAA592195C20A600E9814B /* PMTSLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTSLUtility.h; sourceTree = "<group>"; };
-		63BAA593195C20A600E9814B /* PMTSLUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTSLUtility.m; sourceTree = "<group>"; };
+		63BAA592195C20A600E9814B /* PMUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMUtility.h; sourceTree = "<group>"; };
+		63BAA593195C20A600E9814B /* PMUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMUtility.m; sourceTree = "<group>"; };
 		63BAA5A0195C235C00E9814B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		63BAA5A4195C235C00E9814B /* PMTSLUtility-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PMTSLUtility-Info.plist"; sourceTree = "<group>"; };
 		63BAA5A6195C235C00E9814B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				63BAA591195C20A600E9814B /* FI.h */,
-				63BAA592195C20A600E9814B /* PMTSLUtility.h */,
-				63BAA593195C20A600E9814B /* PMTSLUtility.m */,
+				63BAA592195C20A600E9814B /* PMUtility.h */,
+				63BAA593195C20A600E9814B /* PMUtility.m */,
 				63830043195D2980005E3D69 /* PMFileManager.h */,
 				63830044195D2980005E3D69 /* PMFileManager.m */,
 			);
@@ -257,7 +257,7 @@
 			files = (
 				63C47F0B195C337E00AB5EAC /* FI.h in Headers */,
 				63830045195D2980005E3D69 /* PMFileManager.h in Headers */,
-				63C47F0A195C337800AB5EAC /* PMTSLUtility.h in Headers */,
+				63C47F0A195C337800AB5EAC /* PMUtility.h in Headers */,
 				63C47F0C195C33B300AB5EAC /* Utility-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,7 +408,7 @@
 				63830046195D2980005E3D69 /* PMFileManager.m in Sources */,
 				63BAA568195C202600E9814B /* PMViewController.m in Sources */,
 				63BAA562195C202600E9814B /* PMAppDelegate.m in Sources */,
-				63BAA598195C20A600E9814B /* PMTSLUtility.m in Sources */,
+				63BAA598195C20A600E9814B /* PMUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63830047195D2980005E3D69 /* PMFileManager.m in Sources */,
-				63C47F08195C335A00AB5EAC /* PMTSLUtility.m in Sources */,
+				63C47F08195C335A00AB5EAC /* PMUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
