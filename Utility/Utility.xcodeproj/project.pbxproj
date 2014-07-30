@@ -39,6 +39,9 @@
 		63BAA57B195C202600E9814B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63BAA579195C202600E9814B /* InfoPlist.strings */; };
 		63BAA57D195C202600E9814B /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA57C195C202600E9814B /* UtilityTests.m */; };
 		63BAA598195C20A600E9814B /* PMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMUtility.m */; };
+		63C0084319891F4B0074C4E3 /* PMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0084219891F4B0074C4E3 /* PMValidator.m */; };
+		63C0084419891F5E0074C4E3 /* PMValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0084219891F4B0074C4E3 /* PMValidator.m */; };
+		63C0084519891FDF0074C4E3 /* PMValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C0084119891F4B0074C4E3 /* PMValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63C47F03195C305E00AB5EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63C47F01195C305E00AB5EAC /* InfoPlist.strings */; };
 		63C47F08195C335A00AB5EAC /* PMUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BAA593195C20A600E9814B /* PMUtility.m */; };
 		63C47F0A195C337800AB5EAC /* PMUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BAA592195C20A600E9814B /* PMUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -85,6 +88,8 @@
 		63BAA5A4195C235C00E9814B /* PMTSLUtility-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PMTSLUtility-Info.plist"; sourceTree = "<group>"; };
 		63BAA5A6195C235C00E9814B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63BAA5A8195C235C00E9814B /* PMTSLUtility-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PMTSLUtility-Prefix.pch"; sourceTree = "<group>"; };
+		63C0084119891F4B0074C4E3 /* PMValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMValidator.h; sourceTree = "<group>"; };
+		63C0084219891F4B0074C4E3 /* PMValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMValidator.m; sourceTree = "<group>"; };
 		63C47EFC195C305E00AB5EAC /* PMUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PMUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C47F00195C305E00AB5EAC /* PMTSLUtility-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PMTSLUtility-Info.plist"; sourceTree = "<group>"; };
 		63C47F02195C305E00AB5EAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -203,6 +208,8 @@
 		63BAA590195C20A600E9814B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				63C0084119891F4B0074C4E3 /* PMValidator.h */,
+				63C0084219891F4B0074C4E3 /* PMValidator.m */,
 				63BAA591195C20A600E9814B /* FI.h */,
 				63BAA592195C20A600E9814B /* PMUtility.h */,
 				63BAA593195C20A600E9814B /* PMUtility.m */,
@@ -258,6 +265,7 @@
 				63C47F0B195C337E00AB5EAC /* FI.h in Headers */,
 				63830045195D2980005E3D69 /* PMFileManager.h in Headers */,
 				63C47F0A195C337800AB5EAC /* PMUtility.h in Headers */,
+				63C0084519891FDF0074C4E3 /* PMValidator.h in Headers */,
 				63C47F0C195C33B300AB5EAC /* Utility-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +417,7 @@
 				63BAA568195C202600E9814B /* PMViewController.m in Sources */,
 				63BAA562195C202600E9814B /* PMAppDelegate.m in Sources */,
 				63BAA598195C20A600E9814B /* PMUtility.m in Sources */,
+				63C0084319891F4B0074C4E3 /* PMValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C0084419891F5E0074C4E3 /* PMValidator.m in Sources */,
 				63830047195D2980005E3D69 /* PMFileManager.m in Sources */,
 				63C47F08195C335A00AB5EAC /* PMUtility.m in Sources */,
 			);
