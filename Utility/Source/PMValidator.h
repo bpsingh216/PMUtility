@@ -153,13 +153,6 @@
  *  @return date in above format
  */
 + (NSString *)displayDateInMMDDYYYYFormat:(NSString *)inputDate;
-/**
- *  Calculate total days from specified data
- *
- *  @param inputDate date
- *
- *  @return returns days string
- */
-+ (NSString*)calculateDays:(NSString *)inputDate;
+
 
 @end

@@ -219,5 +219,113 @@
     result= [defaults objectForKey:key];
     return result;
 }
+#pragma mark -
+#pragma mark Plist  Methods
+/**
+ *  Reading a data from Plist
+ *
+ *  @param filename name of Plist to which data is returned after receiving the resposne
+ *
+ *  @return resultant dictionary read from plist
+ */
+
+-(NSMutableDictionary *)readDataFromPlist:(NSString *)filename
+{
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"];
+    
+    // *********************************************************************************************************
+    
+    NSMutableDictionary *rootDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    // //NSLog(@"rootDictionary = %@",rootDictionary);
+    return rootDictionary;
+}
+
+/**
+ *  Reading a data from Plist (Document Direcory)
+ *
+ *  @param filePath document Directory file path
+ *
+ *  @return resultant dictionary read from plist
+ */
+
+- (NSMutableDictionary *)readDataFromPlsitinDocDirectoryWithpath:(NSString *)filePath
+{
+    NSMutableDictionary *rootDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    return rootDictionary;
+}
+/**
+ *  Saving data to PList
+ *
+ *  @param filename name of Plist to which data is saved after receiving the resposne
+ *  @param urlName  name of URL from which data is retrieved
+ *  @param responseString json response from server is stored in string
+ */
+
+-(void)writeDataToPlist:(NSString *)fileName forKeyName:(NSString *)keyName andResponseString:(NSString *)responseString
+{
+    if (responseString != nil)
+    {
+        
+        NSString *savedPath = [self filePathInDocDirectory:[NSString stringWithFormat:@"%@.plist",fileName]];
+        
+        NSString *plistpath = @"";
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:savedPath])
+            plistpath = savedPath;
+        else
+            plistpath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+        
+        NSMutableDictionary *rootDictionaryBase = [[NSMutableDictionary alloc] initWithContentsOfFile:plistpath];
+        responseString = [responseString stringByReplacingOccurrencesOfString:@":null" withString:@":\"nil\""];
+        
+        NSData * jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+        NSMutableDictionary* json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:nil];
+        NSMutableDictionary *rootDictionary = [[NSMutableDictionary alloc]initWithDictionary:json];
+        
+        [rootDictionaryBase setObject:rootDictionary forKey:keyName];
+        
+        [rootDictionaryBase writeToFile:savedPath atomically:YES];
+    }
+    else
+    {
+        NSLog(@"PMFileManagerLog: FAILURE For key -> %@",keyName);
+    }
+}
+/**
+ *  Get file path which is in document directory
+ *
+ *  @param filename name of Plist
+ */
+- (NSString *)filePathInDocDirectory:(NSString *)fileName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *savedPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    return savedPath;
+}
+/**
+ *  Remove specified Plist file from document directory
+ *
+ *  @param filename name of Plist
+ */
+- (void)removePlistFileFromDocDirectory:(NSString *)fileName
+{
+    @try {
+        NSString *savedPath = [self filePathInDocDirectory:[NSString stringWithFormat:@"%@.plist",fileName]];
+        
+        NSFileManager * fileManager = [NSFileManager defaultManager];
+        NSError *error = nil;
+        
+        if([fileManager fileExistsAtPath:savedPath]) {
+            [fileManager removeItemAtPath:savedPath error:&error];
+            //NSLog(@"error = %@",[error description]);
+        }
+    }
+    @catch (NSException *exception) {
+        //NSLog(@"File removing Exception = %@",exception);
+    }
+    
+}
 
 @end

@@ -16,7 +16,13 @@
 #define INVALID_DATE @"Invalid Date"
 @implementation PMValidator
 
-
+#pragma mark -
+#pragma mark Self Public Methods
+//**********************************************************************************************************
+//
+//  Self Public Methods
+//
+//**********************************************************************************************************
 
 + (BOOL) validateBlankTexfield :(NSString *)textFieldText {
     
@@ -219,7 +225,7 @@
  *
  *  @return string with system time zone
  */
-+(NSString *)getSystemtimeZone
++ (NSString *)getSystemtimeZone
 {
     //*******************************************
     // SM CSI:286 Null exception for systemtimezone
@@ -253,7 +259,7 @@
  *
  *  @return converted time in HHmm format
  */
-+(NSString *)convertTimeFromParticularTimeZoneToSystemTimeZone:(NSString *)timeZone andTime:(NSString *)saleTime
++ (NSString *)convertTimeFromParticularTimeZoneToSystemTimeZone:(NSString *)timeZone andTime:(NSString *)saleTime
 {
     // Change SM : For change request for Change in Webservice response
     //Convert Time to 0030 format
@@ -307,7 +313,7 @@
  *
  *  @return Time in 12 hour format
  */
-+(NSString *)displayTimeInAmPM:(NSString *)inputTime
++ (NSString *)displayTimeInAmPM:(NSString *)inputTime
 {
     if(![inputTime isKindOfClass:[NSNull class]])
     {
@@ -339,7 +345,7 @@
  *  @return date in above format
  */
 
-+(NSString *)displayDateInParticularFormat:(NSString *)inputDate
++ (NSString *)displayDateInParticularFormat:(NSString *)inputDate
 {
     NSDateFormatter *responseDateFormatter = [[NSDateFormatter alloc] init];
     [responseDateFormatter setDateFormat:@"yyyyMMdd"];
@@ -354,7 +360,7 @@
 }
 
 // display date in mm/dd/yyyy
-+(NSString *)displayDateInMMDDYYYYFormat:(NSString *)inputDate
++ (NSString *)displayDateInMMDDYYYYFormat:(NSString *)inputDate
 {
     NSDateFormatter *responseDateFormatter = [[NSDateFormatter alloc] init];
     [responseDateFormatter setDateFormat:@"yyyyMMdd"];
@@ -368,45 +374,4 @@
     return displayDate;
 }
 
-
-+(NSString*)calculateDays:(NSString *)inputDate
-{
-    // extract today's date from current date string
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyyMMdd"];
-    NSDate *startDate = [NSDate date];
-    NSString *dateStr = [dateFormat stringFromDate:startDate];
-    NSDate *systemDate = [dateFormat dateFromString:dateStr];
-    NSLog(@"%@",systemDate);
-    NSDate *endDate = [dateFormat dateFromString:inputDate];
-    NSLog(@"%@",endDate);
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
-                                                        fromDate:systemDate
-                                                          toDate:endDate
-                                                         options:0];
-    
-    
-    NSString *days;
-    
-    if (components.day >=1 && components.day <=9) {
-        
-        days = [NSString stringWithFormat:@"0%dd",components.day];
-    }else if (components.day < 0)
-    {
-        
-        days = [NSString stringWithFormat:@"0d"];
-        
-    }
-    else
-    {
-        days = [NSString stringWithFormat:@"%dd",components.day];
-        
-        
-    }
-    
-    
-    return days;
-}
 @end

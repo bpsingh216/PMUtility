@@ -68,4 +68,48 @@
  *  @return object any object
  */
 + (id)retrievingObjectFromUserDefaultForKey:(NSString *)key;
+
+/**
+ *  Reading a data from Plist (Main Bundle)
+ *
+ *  @param filename name of Plist to which data is returned after receiving the resposne
+ *
+ *  @return resultant dictionary read from plist
+ */
+
+-(NSMutableDictionary *)readDataFromPlist:(NSString *)filename;
+
+/**
+ *  Reading a data from Plist (Document Direcory)
+ *
+ *  @param filePath document Directory file path
+ *
+ *  @return resultant dictionary read from plist
+ */
+
+- (NSMutableDictionary *)readDataFromPlsitinDocDirectoryWithpath:(NSString *)filePath;
+
+/**
+ *  Saving data to PList
+ *
+ *  @param filename name of Plist to which data is saved after receiving the resposne
+ *  @param urlName  name of URL from which data is retrieved
+ *  @param responseString json response from server is stored in string
+ */
+
+-(void)writeDataToPlist:(NSString *)fileName forKeyName:(NSString *)keyName andResponseString:(NSString *)responseString;
+
+/**
+ *  Get file path which is in document directory
+ *
+ *  @param filename name of Plist
+ */
+- (NSString *)filePathInDocDirectory:(NSString *)fileName;
+
+/**
+ *  Remove specified Plist file from document directory
+ *
+ *  @param filename name of Plist
+ */
+- (void)removePlistFileFromDocDirectory:(NSString *)fileName;
 @end
